@@ -1,31 +1,35 @@
 import sys
-from collections import deque
 input = sys.stdin.readline
-sys.setrecursionlimit(10**9)
-import time
-start = time.time()
-n = int(input())
-tree = [[] for _ in range(n + 1)]
- 
-for _ in range(n - 1):
-    p, c, d = map(int,input().split())
-    tree[p].append((c, d))
-    tree[c].append((p, d))
- 
-def bfs(start):
-    visited = [-1] * (n + 1)
-    visited[start] = 0
-    queue = deque()
-    queue.append(start)
+
+def union(x,y):
+    x = find(x)
+    y = find(y)
+    if x < y:
+        parents[y] = x
+    else:
+        parents[x] = y
     
-    while queue:
-        cur = queue.popleft()
-        for next, next_d in tree[cur]:
-            if visited[next] == -1:
-                queue.append(next)
-                visited[next] = visited[cur] + next_d
-    m = max(visited)
-    return [visited.index(m), m]
- 
-print(bfs(bfs(1)[0])[1])
-print(f"{time.time()-start:.4f} sec")
+def find(x):
+    if x != parents[x]:
+        parents[x] = find(parents[x])
+    return parents[x]
+
+# 유니온 파인드
+n,m = int(input()),int(input())
+parents = [i for i in range(n)]
+for i in range(n):
+    link = list(map(int,input().split()))
+    for j in range(n):
+        if link[j] == 1:
+            union(i,j)
+
+# 경로 체크
+parents = [-1] + parents
+path = list(map(int,input().split()))
+start = parents[path[0]]
+for i in range(1,m):
+    if parents[path[i]] != start:
+        print("NO")
+        break
+else:
+    print("YES")
