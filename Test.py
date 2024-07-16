@@ -1,35 +1,17 @@
-import sys
-input = sys.stdin.readline
+month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-def union(x,y):
-    x = find(x)
-    y = find(y)
-    if x < y:
-        parents[y] = x
-    else:
-        parents[x] = y
-    
-def find(x):
-    if x != parents[x]:
-        parents[x] = find(parents[x])
-    return parents[x]
+while 1:
+  # 입력
+  D, M, Y = map(int, input().split())
+  
+  if D+M+Y==0: break
+  
+  # 풀이
+  d = D
+  if M>=2:
+    d += sum(month[:M])
+    if (Y%4==0 and Y%100!=0) or Y%400==0:
+      d += 1
 
-# 유니온 파인드
-n,m = int(input()),int(input())
-parents = [i for i in range(n)]
-for i in range(n):
-    link = list(map(int,input().split()))
-    for j in range(n):
-        if link[j] == 1:
-            union(i,j)
-
-# 경로 체크
-parents = [-1] + parents
-path = list(map(int,input().split()))
-start = parents[path[0]]
-for i in range(1,m):
-    if parents[path[i]] != start:
-        print("NO")
-        break
-else:
-    print("YES")
+  # 출력
+  print(d)
