@@ -1,17 +1,18 @@
-month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+N, K = map(int, input().split())
+A = list(map(int, input().split()))
+b = 0 
+c = 0
+count = 0
 
-while 1:
-  # 입력
-  D, M, Y = map(int, input().split())
-  
-  if D+M+Y==0: break
-  
-  # 풀이
-  d = D
-  if M>=2:
-    d += sum(month[:M])
-    if (Y%4==0 and Y%100!=0) or Y%400==0:
-      d += 1
+while count < N and c != N-1:
+    if A[c+1]-A[c] <K:
+        c = c
+        count +=1
+    elif A[c+1]-A[c]>=K:
+        c = c+1
+        count +=1
 
-  # 출력
-  print(d)
+for i in range(N):
+    b +=A[c]+K*(i-c) -A[i]
+
+print(b)
