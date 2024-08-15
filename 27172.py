@@ -2,16 +2,24 @@ import sys
 input = lambda : sys.stdin.readline().rstrip()
 
 N = int(input())
-card = list(map(int, input().split()))
-score = [0] * N
+card = []
+score = dict()
+
+M = 0 # 입력 숫자 중 최댓값
+for idx, num in enumerate([*map(int, input().split())]):
+    M = max(M, num)
+    card.append((idx, num))
+    score[num] = 0
+
+card.sort(key=lambda x:x[1])
 
 for i in range(N):
-    for j in range(i):
-        if card[i] % card[j] == 0:
-            score[i] -= 1
-            score[j] += 1
-        elif card[j] % card[i] == 0:
-            score[i] += 1
-            score[j] -= 1
+    idx, num = card[i]
 
-print(*score)
+    for op in range(num*2, M+1, num):
+        # op는 num 배수이므로 존재하면 무조건 op 패배
+        if op in score:
+            score[num] += 1
+            score[op] -= 1
+
+print(*score.values())
