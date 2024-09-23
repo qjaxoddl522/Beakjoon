@@ -1,0 +1,1 @@
+{"name":"Local: 2504","url":"d:\\Desktop\\프로젝트\\Beakjoon\\2504.py","tests":[{"id":1725884942764,"input":"(()[[]])([])","output":"28"},{"id":1725884945260,"input":"[][]((])","output":"0"},{"id":1725885779963,"input":"[()[]]","output":"15"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Desktop\\프로젝트\\Beakjoon\\2504.py","group":"local","local":true}

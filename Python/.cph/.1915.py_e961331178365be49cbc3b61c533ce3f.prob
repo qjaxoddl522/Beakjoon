@@ -1,0 +1,1 @@
+{"name":"Local: 1915","url":"d:\\Desktop\\프로젝트\\Beakjoon\\1915.py","tests":[{"id":1725156470656,"input":"4 4\n0100\n0111\n1110\n0010","output":"4"},{"id":1725161501394,"input":"5 5\n01001\n01111\n10111\n01111\n01001","output":"9"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Desktop\\프로젝트\\Beakjoon\\1915.py","group":"local","local":true}
