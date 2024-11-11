@@ -1,24 +1,34 @@
-from collections import deque
+import sys
+n,m = map(int,sys.stdin.readline().split())
 
-n = int(input())
-stairs = [0] * n
-dp = [0] * n # dp 배열 초기화
+limit = []
+real = []
+s = 0
+for _ in range(n):
+    s1, s2 = map(int, sys.stdin.readline().split())
+    s +=s1
+    limit.append((s,s2))
+s = 0
+for _ in range(n):
+    s1, s2 = map(int, sys.stdin.readline().split())
+    s +=s1
+    real.append((s,s2))
 
-for i in range(n):
-    stairs[i] = int(input())
+dap = []
+idx_r = 0
+idx_l = 0
+n = 0
+while True:
+    n += 1
+    if n == 100:
+        break
+    if n == real[idx_r][0]:
+        idx_r+=1
+    if n == limit[idx_l][0]:
+        idx_l+=1
+    dap.append(real[idx_r][1] - limit[idx_l][1])
 
-if n == 1: # 계단이 하나면
-    dq = deque([(0, stairs[0], 1)])
-else: # 계단이 두 개 이상이면
-    dq = deque([(0, stairs[0], 1), (1, stairs[1], 1)])
-
-while dq:
-    now, cost, cnt = dq.popleft()
-    if cost > dp[now]:
-        dp[now] = cost
-        if now + 1 < n and cnt < 2: # 계단을 세 개 연속으로 못 오른다.
-            dq.append((now + 1, dp[now] + stairs[now + 1], cnt + 1))
-        if now + 2 < n:
-            dq.append((now + 2, dp[now] + stairs[now + 2], 1))
-        
-print(dp[n - 1])
+if max(dap) <= 0:
+    print(0)
+else:
+    print(max(dap))
