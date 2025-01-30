@@ -1,0 +1,1 @@
+{"name":"Local: 1786","url":"d:\\Desktop\\프로젝트\\Beakjoon\\Python\\1786.py","tests":[{"id":1736052370681,"input":"ABC ABCDAB ABCDABCDABD\nABCDABD","output":"1\n16"},{"id":1736082010979,"input":"ababa\naba","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Desktop\\프로젝트\\Beakjoon\\Python\\1786.py","group":"local","local":true}
