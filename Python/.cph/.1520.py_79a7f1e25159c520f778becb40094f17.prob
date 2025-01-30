@@ -1,0 +1,1 @@
+{"name":"Local: 1520","url":"d:\\Desktop\\프로젝트\\Beakjoon\\Python\\1520.py","tests":[{"id":1737374886777,"input":"4 5\n50 45 37 32 30\n35 50 40 20 25\n30 30 25 17 28\n27 24 22 15 10","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Desktop\\프로젝트\\Beakjoon\\Python\\1520.py","group":"local","local":true}
