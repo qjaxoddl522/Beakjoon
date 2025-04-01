@@ -6,21 +6,27 @@ partial class Program {
         StreamWriter writer = new StreamWriter(Console.OpenStandardOutput());
         
         int N = int.Parse(reader.ReadLine());
-        int[] arr = Array.ConvertAll(reader.ReadLine().Split(' '), int.Parse);
+        Queue<int> queue = new Queue<int>();
+        bool[] isQueue = new bool[N];
 
-        int[] dp = new int[N];
-        for (int i=0; i<N; i++) {
-            dp[i] = 1;
-        }
-        for (int i=1; i<N; i++) {
-            for (int j=0; j<i; j++) {
-                if (arr[i] < arr[j]) {
-                    dp[i] = Math.Max(dp[i], dp[j]+1);
-                }
-            }
+        int[] input = Array.ConvertAll(reader.ReadLine().Split(), int.Parse);
+        for (int i=N-1; i>=0; i--) {
+            isQueue[i] = input[i] == 0;
         }
 
-        writer.WriteLine(dp.Max());
+        input = Array.ConvertAll(reader.ReadLine().Split(), int.Parse);
+        for (int i=N-1; i>=0; i--) {
+            if (isQueue[i])
+                queue.Enqueue(input[i]);
+        }
+        
+        int M = int.Parse(reader.ReadLine());
+        input = Array.ConvertAll(reader.ReadLine().Split(), int.Parse);
+        for (int i=0; i<M; i++) {
+            queue.Enqueue(input[i]);
+            writer.Write(queue.Dequeue() + " ");
+        }
+
         writer.Flush();
     }
 }

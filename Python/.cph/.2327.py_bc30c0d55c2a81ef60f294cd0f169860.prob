@@ -1,0 +1,1 @@
+{"name":"Local: 2327","url":"d:\\Desktop\\프로젝트\\Beakjoon\\Python\\2327.py","tests":[{"id":1739375763058,"input":"7 6\n4 5\n3 6\n2 7\n1 4\n6 7\n1 5","output":""},{"id":1739413825300,"input":"7 4\n1 1\n7 7\n2 5\n5 6","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Desktop\\프로젝트\\Beakjoon\\Python\\2327.py","group":"local","local":true}
